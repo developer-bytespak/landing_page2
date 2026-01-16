@@ -53,11 +53,11 @@ const VideoStrip = () => {
   const [index, setIndex] = useState(0);
   const [withTransition, setWithTransition] = useState(true);
 
-  // Advance slide every 5 seconds
+  // Advance slide every 3 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => prev + 1);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 
@@ -133,7 +133,7 @@ const VideoStrip = () => {
             <button
               aria-label="Previous slide"
               onClick={prevSlide}
-              className="flex absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 bg-gray-900/40 hover:bg-gray-900/70 backdrop-blur rounded-full p-2 sm:p-3 md:p-4 transition-all"
+              className="flex absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 bg-gray-900/40 hover:bg-gray-900/70 backdrop-blur rounded-[10px] p-2 sm:p-3 md:p-4 transition-all"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +153,7 @@ const VideoStrip = () => {
             <button
               aria-label="Next slide"
               onClick={nextSlide}
-              className="flex absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 bg-gray-900/40 hover:bg-gray-900/70 backdrop-blur rounded-full p-2 sm:p-3 md:p-4 transition-all"
+              className="flex absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 bg-gray-900/40 hover:bg-gray-900/70 backdrop-blur rounded-[10px] p-2 sm:p-3 md:p-4 transition-all"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +217,7 @@ const VideoStrip = () => {
                     <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                       {item.description}
                     </p>
-                    <button className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg text-sm font-semibold shadow-md hover:bg-primary/90 transition-all hover:scale-105">
+                    <button className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-[10px] text-sm font-semibold shadow-md hover:bg-primary/90 transition-all hover:scale-105">
                       View Project Details
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

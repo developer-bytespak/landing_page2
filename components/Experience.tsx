@@ -22,11 +22,11 @@ const experienceImages = [
     src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&h=400&fit=crop",
     alt: "Architectural planning",
   },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&h=400&fit=crop",
-    alt: "Engineering team",
-  },
+  // {
+  //   id: 5,
+  //   src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&h=400&fit=crop",
+  //   alt: "Engineering team",
+  // },
 ];
 
 const Experience = () => {

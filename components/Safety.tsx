@@ -39,7 +39,10 @@ const Safety = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Video/Image */}
           <motion.div
-            style={{ scale, opacity }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative h-[300px] lg:h-[450px] rounded-sm overflow-hidden order-2 lg:order-1"
           >
             <img
@@ -72,10 +75,10 @@ const Safety = () => {
           {/* Content */}
           <div className="order-1 lg:order-2">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <span className="text-primary text-sm tracking-[0.3em] uppercase mb-4 block">
                 Core Values
