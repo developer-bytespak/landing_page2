@@ -92,9 +92,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
-            <span className="text-2xl font-serif font-bold text-black">CEF</span>
+            <img src="/lp_logoo.png" alt="GP Logo" className="h-10 w-auto" />
             <span className="hidden sm:block text-sm text-gray-700 border-l border-gray-300 pl-3">
-              Construction &<br />Engineering
+              GLOBAL PARDON &<br />US WAIVER SERVICES
             </span>
           </a>
 
