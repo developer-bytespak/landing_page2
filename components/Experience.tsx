@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
 import { useRef, useState } from "react";
 
 const experienceItems = [
@@ -28,6 +28,22 @@ const experienceItems = [
 const Experience = () => {
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  
+  useAnimationFrame((t, delta) => {
+    if (!isPaused) {
+      const speed = -0.04; // Adjust speed as needed
+      const currentX = x.get();
+      const newX = currentX + speed * delta;
+      
+      // Reset position when reaching the end of first set
+      if (newX <= -1224) {
+        x.set(newX + 1224);
+      } else {
+        x.set(newX);
+      }
+    }
+  });
 
   return (
     <section id="experience" className="section-padding overflow-hidden">
@@ -51,22 +67,11 @@ const Experience = () => {
       <div
         ref={containerRef}
         className="relative"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
       >
         <div className="flex overflow-hidden">
           <motion.div
             className="flex gap-6"
-            animate={{
-              x: isPaused ? 0 : [0, -1224],
-            }}
-            transition={{
-              x: {
-                duration: 22,
-                repeat: Infinity,
-                ease: "linear",
-              },
-            }}
+            style={{ x }}
           >
             {[...experienceItems, ...experienceItems].map((item, index) => (
               <motion.div
@@ -74,6 +79,8 @@ const Experience = () => {
                 className="relative flex-shrink-0 w-96 h-64 rounded-lg overflow-hidden group cursor-grab active:cursor-grabbing bg-white border border-gray-200 shadow-md"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
               >
                 <div className="p-8 h-full flex flex-col">
                   {/* Star Rating */}

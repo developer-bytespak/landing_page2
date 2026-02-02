@@ -26,7 +26,7 @@ const Blog = () => {
   ];
 
   return (
-    <section className="section-padding bg-white">
+    <section className="pb-16 md:pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <motion.div
