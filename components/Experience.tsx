@@ -1,32 +1,28 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
-const experienceImages = [
+const experienceItems = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=500&h=400&fit=crop",
-    alt: "Modern government building",
+    name: "Sarah M.",
+    service: "RECORD SUSPENSION",
+    testimonial: "Global Pardon made the process so easy. I was overwhelmed by the paperwork, but they handled everything. Now I can travel freely!",
+    rating: 5,
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?w=500&h=400&fit=crop",
-    alt: "Construction site",
+    name: "James T.",
+    service: "US ENTRY WAIVER",
+    testimonial: "Professional and efficient. They explained every step and kept me updated. Highly recommended for anyone needing a waiver.",
+    rating: 5,
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&h=400&fit=crop",
-    alt: "Infrastructure project",
+    name: "David L.",
+    service: "NEXUS APPLICATION",
+    testimonial: "Thanks to their help, I got my Nexus card approved much faster than I expected. Great service!",
+    rating: 5,
   },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&h=400&fit=crop",
-    alt: "Architectural planning",
-  },
-  // {
-  //   id: 5,
-  //   src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&h=400&fit=crop",
-  //   alt: "Engineering team",
-  // },
 ];
 
 const Experience = () => {
@@ -44,43 +40,10 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <span className="text-primary text-sm tracking-[0.3em] uppercase mb-4 block">
-            Track Record
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold mb-6">
-            Experience & Capabilities
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold mb-2">
+            Client Success Stories
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Over two decades of delivering complex construction and engineering
-            projects for government clients. From concept to completion, we bring
-            the expertise and resources required for success.
-          </p>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-        >
-          {[
-            { value: "25+", label: "Years Experience" },
-            { value: "500+", label: "Projects Completed" },
-            { value: "$2B+", label: "Contract Value" },
-            { value: "98%", label: "Client Satisfaction" },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-6 glass-card rounded-sm"
-            >
-              <div className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
-            </div>
-          ))}
+          <div className="w-20 h-1 bg-red-500 mx-auto"></div>
         </motion.div>
       </div>
 
@@ -95,7 +58,7 @@ const Experience = () => {
           <motion.div
             className="flex gap-6"
             animate={{
-              x: isPaused ? 0 : [0, -1320],
+              x: isPaused ? 0 : [0, -1224],
             }}
             transition={{
               x: {
@@ -105,19 +68,37 @@ const Experience = () => {
               },
             }}
           >
-            {[...experienceImages, ...experienceImages].map((image, index) => (
+            {[...experienceItems, ...experienceItems].map((item, index) => (
               <motion.div
-                key={`${image.id}-${index}`}
-                className="relative flex-shrink-0 w-64 h-48 rounded-sm overflow-hidden group cursor-grab active:cursor-grabbing"
+                key={`${item.id}-${index}`}
+                className="relative flex-shrink-0 w-96 h-64 rounded-lg overflow-hidden group cursor-grab active:cursor-grabbing bg-white border border-gray-200 shadow-md"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="p-8 h-full flex flex-col">
+                  {/* Star Rating */}
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(item.rating)].map((_, i) => (
+                      <span key={i} className="text-yellow-400 text-lg">★</span>
+                    ))}
+                  </div>
+                  
+                  {/* Testimonial */}
+                  <p className="text-sm text-gray-700 italic leading-relaxed mb-4 flex-1">
+                    "{item.testimonial}"
+                  </p>
+                  
+                  {/* Name and Service */}
+                  <div>
+                    <h3 className="text-base font-bold text-black">
+                      {item.name}
+                    </h3>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider">
+                      {item.service}
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </motion.div>
