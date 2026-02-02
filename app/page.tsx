@@ -11,7 +11,7 @@ import Services from "@/components/Services";
 import Credentials from "@/components/Credentials";
 import Experience from "@/components/Experience";
 import Markets from "@/components/Markets";
-import Safety from "@/components/Safety";
+import Blog from "@/components/Blog";
 import WhyPartner from "@/components/WhyPartner";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -37,7 +37,7 @@ export default function Home() {
           {/* <Markets /> */}
           {/* <WhyPartner /> */}
           <Experience />
-          <Safety />
+          <Blog />
           <CTA />
         </main>
         <Footer />
