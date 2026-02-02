@@ -1,7 +1,5 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 
-import { MapPin, Phone, Mail } from "lucide-react";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 

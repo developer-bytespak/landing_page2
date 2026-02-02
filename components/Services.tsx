@@ -373,10 +373,11 @@ const Services = () => {
   }, { scope: container, dependencies: [isMobileDevice] });
 
   useEffect(() => {
+    const currentContainer = container.current;
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
         const trg = trigger.vars?.trigger;
-        if (trg && typeof trg !== 'string' && container.current && container.current.contains(trg as Node)) {
+        if (trg && typeof trg !== 'string' && currentContainer && currentContainer.contains(trg as Node)) {
           trigger.kill();
         }
       });

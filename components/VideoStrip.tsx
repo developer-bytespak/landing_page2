@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 
 const projects = [
@@ -49,7 +49,7 @@ const projects = [
 ];
 
 const VideoStrip = () => {
-  const slides = [...projects, projects[0]];
+  const slides = useMemo(() => [...projects, projects[0]], []);
   const [index, setIndex] = useState(0);
   const [withTransition, setWithTransition] = useState(true);
 

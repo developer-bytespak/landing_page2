@@ -92,7 +92,7 @@ const Experience = () => {
                   
                   {/* Testimonial */}
                   <p className="text-sm text-gray-700 italic leading-relaxed mb-4 flex-1">
-                    "{item.testimonial}"
+                    &ldquo;{item.testimonial}&rdquo;
                   </p>
                   
                   {/* Name and Service */}
