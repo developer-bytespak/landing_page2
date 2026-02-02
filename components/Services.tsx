@@ -297,7 +297,14 @@ const Services = () => {
           position: "absolute",
           xPercent: -50,
           yPercent: -50,
+          force3D: true,
         });
+        
+        // Set transform style for better 3D rendering
+        const flipCardInner = card.querySelector(".flip-card-inner") as HTMLElement;
+        if (flipCardInner) {
+          flipCardInner.style.transformStyle = "preserve-3d";
+        }
       });
 
       // Spread Cards section
@@ -349,20 +356,15 @@ const Services = () => {
               const backRotation = 180 - 180 * animationProgress;
               const cardRotation = rotation[index] * (1 - animationProgress);
 
-              // Rotate the faces with smoother easing
-              gsap.to(frontEl, { rotateY: frontRotation, ease: "power2.inOut", duration: 0.6 });
-              gsap.to(backEl, { rotateY: backRotation, ease: "power2.inOut", duration: 0.6 });
+              // Directly set rotation for smoother performance
+              frontEl.style.transform = `rotateY(${frontRotation}deg)`;
+              backEl.style.transform = `rotateY(${backRotation}deg)`;
 
               // Toggle pointer events based on which side is visible
               frontEl.style.pointerEvents = "none";
 
-              gsap.to(card, {
-                xPercent: -50,
-                yPercent: -50,
-                rotate: cardRotation,
-                ease: "power2.inOut",
-                duration: 0.6,
-              });
+              // Update card rotation
+              card.style.transform = `translate(-50%, -50%) rotate(${cardRotation}deg)`;
             }
           },
         });
