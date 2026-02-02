@@ -15,7 +15,7 @@ import Safety from "@/components/Safety";
 import WhyPartner from "@/components/WhyPartner";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import VideoStrip from "@/components/VideoStrip";
+import AboutUs from "@/components/AboutUs";
 
 const queryClient = new QueryClient();
 
@@ -33,7 +33,7 @@ export default function Home() {
         <main>
           <Hero />
           <Services />
-          <VideoStrip />
+          <AboutUs />
           {/* <Markets /> */}
           {/* <WhyPartner /> */}
           <Experience />
