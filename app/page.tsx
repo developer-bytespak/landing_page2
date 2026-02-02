@@ -16,7 +16,6 @@ import WhyPartner from "@/components/WhyPartner";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import VideoStrip from "@/components/VideoStrip";
-import ReadyToWork from "@/components/ReadyToWork";
 
 const queryClient = new QueryClient();
 
@@ -39,7 +38,6 @@ export default function Home() {
           {/* <WhyPartner /> */}
           <Experience />
           <Safety />
-          <ReadyToWork />
           <CTA />
         </main>
         <Footer />
