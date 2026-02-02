@@ -73,7 +73,7 @@ const Header = () => {
     { label: "Services", href: "#services" },
     { label: "About", href: "#about" },
     { label: "Testimonials", href: "#experience" },
-    { label: "ReadyToWork", href: "#readytowork" },
+    { label: "Blogs", href: "#blogs" },
     { label: "Contact", href: "#contact" },
   ];
 

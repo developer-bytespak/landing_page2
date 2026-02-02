@@ -26,7 +26,7 @@ const Blog = () => {
   ];
 
   return (
-    <section className="pb-16 md:pb-24 bg-white">
+    <section id="blogs" className="pb-16 md:pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <motion.div

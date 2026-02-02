@@ -55,8 +55,9 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         style={{ 
           transformStyle: "preserve-3d",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-          transition: "transform 0.6s ease-out",
-          animation: "float 3s ease-in-out infinite"
+          transition: "transform 1.2s cubic-bezier(0.4, 0.0, 0.2, 1)",
+          animation: "float 3s ease-in-out infinite",
+          willChange: "transform"
         }}
       >
         {/* Front - Clean & Minimal */}
@@ -304,12 +305,12 @@ const Services = () => {
         gsap.to(card, {
           left: `${position[index]}%`,
           rotation: rotation[index],
-          ease: "none",
+          ease: "power2.out",
           scrollTrigger: {
             trigger: cardsSection,
             start: "top top",
             end: () => `+=${window.innerHeight}`,
-            scrub: 0.5,
+            scrub: 0.8,
             id: `spread-${index}`,
             onEnter: () => {
               card.style.pointerEvents = "none";
@@ -337,7 +338,7 @@ const Services = () => {
           trigger: cardsSection,
           start: "top top",
           end: () => `+=${totalScrollHeight}`,
-          scrub: 1,
+          scrub: 0.8,
           id: `rotate-flip-${index}`,
           onUpdate: (self) => {
             const progress = self.progress;
@@ -348,9 +349,9 @@ const Services = () => {
               const backRotation = 180 - 180 * animationProgress;
               const cardRotation = rotation[index] * (1 - animationProgress);
 
-              // Rotate the faces
-              gsap.to(frontEl, { rotateY: frontRotation, ease: "power1.out" });
-              gsap.to(backEl, { rotateY: backRotation, ease: "power1.out" });
+              // Rotate the faces with smoother easing
+              gsap.to(frontEl, { rotateY: frontRotation, ease: "power2.inOut", duration: 0.6 });
+              gsap.to(backEl, { rotateY: backRotation, ease: "power2.inOut", duration: 0.6 });
 
               // Toggle pointer events based on which side is visible
               frontEl.style.pointerEvents = "none";
@@ -359,7 +360,8 @@ const Services = () => {
                 xPercent: -50,
                 yPercent: -50,
                 rotate: cardRotation,
-                ease: "power1.out",
+                ease: "power2.inOut",
+                duration: 0.6,
               });
             }
           },
