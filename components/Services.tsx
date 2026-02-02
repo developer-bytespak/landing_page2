@@ -12,47 +12,24 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     icon: Building2,
-    title: "General Construction",
-    services: [
-      "Complete Project Management",
-      "Ground-Up Construction",
-      "Major Renovations",
-      "On-Time Delivery",
-      "Budget Compliance"
-    ],
+    emoji: "⚖️",
+    title: "Pardon / Record Suspension",
+    displayTitle: "📋 Pardon / Record Suspension",
+    description: "Navigate the pardon process with ease. We help you clear your record and move forward."
   },
   {
     icon: Compass,
-    title: "Design-Build",
-    services: [
-      "Single-Source Accountability",
-      "Design Excellence",
-      "Construction Expertise",
-      "Streamlined Delivery",
-      "Federal & Municipal Projects"
-    ],
+    emoji: "🛂",
+    title: "US Waiver Application",
+    displayTitle: "🛂 US Waiver Application",
+    description: "Gain access to the US without barriers. We assist with the complex waiver application process."
   },
   {
     icon: HardHat,
-    title: "Civil & Structural",
-    services: [
-      "Infrastructure Solutions",
-      "Structural Engineering",
-      "Code Compliance",
-      "Licensed Professionals",
-      "Safety Excellence"
-    ],
-  },
-  {
-    icon: Wrench,
-    title: "Facilities Maintenance",
-    services: [
-      "Preventive Maintenance",
-      "24/7 Support",
-      "Scheduled Inspections",
-      "Lifecycle Management",
-      "Government Buildings"
-    ],
+    emoji: "✈️",
+    title: "Nexus Application",
+    displayTitle: "✈️ Nexus Application",
+    description: "We assist with NEXUS Applications to help you travel between Canada and the US faster."
   },
 ];
 
@@ -64,7 +41,7 @@ const isMobile = () => {
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
   const Icon = service.icon;
   const [isFlipped, setIsFlipped] = useState(false);
-  const titles = ["GENERAL CONSTRUCTION", "DESIGN-BUILD", "CIVIL & STRUCTURAL", "FACILITIES MAINTENANCE"];
+  const titles = ["📋 PARDON / RECORD SUSPENSION", "🛂 US WAIVER APPLICATION", "✈️ NEXUS APPLICATION"];
 
   return (
     <div 
@@ -102,15 +79,10 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
             {/* Title */}
             <div className="space-y-2">
               <h2 className="text-lg font-bold text-black leading-tight group-hover:text-blue-900 transition-colors">
-                {service.title}
+                {service.displayTitle}
               </h2>
               <div className="h-0.5 w-12 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto opacity-60 group-hover:opacity-100 transition-opacity" />
             </div>
-
-            {/* Label */}
-            <p className="text-xs text-blue-600/70 font-semibold tracking-widest uppercase group-hover:text-blue-700 transition-colors">
-              Expertise Area
-            </p>
           </div>
         </div>
 
@@ -153,31 +125,24 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col h-full">
-            {/* Header with divider */}
-            <div className="mb-6 pb-4 border-b border-blue-500/30">
-              <h3 className="text-sm font-bold text-black uppercase tracking-widest">
-                {titles[index]}
+          <div className="relative z-10 flex flex-col h-full justify-center items-center text-center px-6">
+            {/* Emoji */}
+            <div className="mb-4">
+              <span className="text-5xl">{service.emoji}</span>
+            </div>
+            
+            {/* Heading */}
+            <div className="mb-4">
+              <h3 className="text-lg font-bold text-black">
+                {service.title}
               </h3>
             </div>
 
-            {/* Services list with improved spacing */}
-            <div className={`flex-1 ${index !== 0 && index !== 3 ? 'overflow-y-auto' : 'overflow-hidden'} pr-2`}>
-              <div className="space-y-3">
-                {service.services.map((item, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1.5 flex-shrink-0 opacity-80" />
-                    <p className="text-xs text-gray-700 leading-relaxed">
-                      {item}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Bottom accent line */}
-            <div className="mt-4 pt-4 border-t border-blue-500/30">
-              <div className="h-0.5 w-8 bg-gradient-to-r from-cyan-400 to-transparent opacity-60" />
+            {/* Description */}
+            <div className="flex-1 flex items-start justify-center">
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {service.description}
+              </p>
             </div>
           </div>
         </div>
@@ -302,8 +267,8 @@ const Services = () => {
 
     } else {
       // Desktop Animation: Original spread animation
-      const position = [14, 38, 62, 86];
-      const rotation = [-15, -7.5, 7.5, 15];
+      const position = [20, 50, 80];
+      const rotation = [-12, 0, 12];
       const totalScrollHeight = window.innerHeight * 3;
 
       const cardsSection = container.current?.querySelector(".services-cards");
@@ -426,17 +391,15 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16"
           >
-            <span className="text-blue-500 text-sm tracking-[0.3em] uppercase mb-3 block font-semibold">
-              Our Expertise
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-              Full-Spectrum Services
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">
+              Our Services
             </h2>
+            <div className="w-16 h-1 bg-red-600 mx-auto"></div>
           </motion.div>
 
           {/* Service Cards */}
           {isMobileDevice ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {services.map((service, index) => (
                 <motion.div
                   key={index}
@@ -453,7 +416,7 @@ const Services = () => {
               ))}
             </div>
           ) : (
-            <div className="services-cards relative w-full h-[550px]">
+            <div className="services-cards relative w-full h-[550px] max-w-6xl mx-auto">
               {services.map((service, index) => (
                 <div
                   key={index}
