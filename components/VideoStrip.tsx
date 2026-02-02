@@ -109,7 +109,7 @@ const VideoStrip = () => {
   }, [index, slides]);
 
   return (
-    <section id="videostrip" className="py-20 sm:py-12 md:py-16 lg:py-8 bg-[#010a14] bg-[url('/portfolio_bg.png')] bg-cover bg-center bg-no-repeat">
+    <section id="videostrip" className="py-20 sm:py-12 md:py-16 lg:py-8 bg-white">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -133,13 +133,13 @@ const VideoStrip = () => {
             <button
               aria-label="Previous slide"
               onClick={prevSlide}
-              className="flex absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 bg-gray-900/40 hover:bg-gray-900/70 backdrop-blur rounded-[10px] p-2 sm:p-3 md:p-4 transition-all"
+              className="flex absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 backdrop-blur rounded-[10px] p-2 sm:p-3 md:p-4 transition-all shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white"
+                className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-black"
               >
                 <path
                   fillRule="evenodd"
@@ -153,13 +153,13 @@ const VideoStrip = () => {
             <button
               aria-label="Next slide"
               onClick={nextSlide}
-              className="flex absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 bg-gray-900/40 hover:bg-gray-900/70 backdrop-blur rounded-[10px] p-2 sm:p-3 md:p-4 transition-all"
+              className="flex absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 backdrop-blur rounded-[10px] p-2 sm:p-3 md:p-4 transition-all shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white"
+                className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-black"
               >
                 <path
                   fillRule="evenodd"

@@ -58,8 +58,8 @@ const Header = () => {
     scrollY,
     [0, 100],
     [
-      "hsla(222, 47%, 6%, 0)", 
-      isTransparentSection ? "hsla(222, 47%, 6%, 0)" : "hsla(222, 47%, 6%, 0.95)"
+      "hsla(0, 0%, 100%, 0)", 
+      isTransparentSection ? "hsla(0, 0%, 100%, 0)" : "hsla(0, 0%, 100%, 0.95)"
     ]
   );
   

@@ -84,7 +84,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
       >
         {/* Front - Clean & Minimal */}
         <div
-          className="flip-card-front absolute inset-0 rounded-3xl p-8 flex flex-col items-center justify-center text-center backdrop-blur-lg border border-blue-400/20 bg-gradient-to-br from-slate-950/80 to-slate-900/60 overflow-hidden group-hover:border-blue-400/40 transition-colors"
+          className="flip-card-front absolute inset-0 rounded-3xl p-8 flex flex-col items-center justify-center text-center backdrop-blur-lg border border-blue-400/30 bg-gradient-to-br from-white to-gray-50 overflow-hidden group-hover:border-blue-400/50 transition-colors shadow-md"
           style={{ backfaceVisibility: "hidden" }}
         >
           {/* Subtle background glow */}
@@ -95,20 +95,20 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           {/* Content */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full gap-4">
             {/* Icon with glow effect */}
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/30 backdrop-blur-md border border-blue-300/50 flex items-center justify-center group-hover:border-blue-300/80 group-hover:from-blue-500/40 group-hover:to-cyan-500/40 transition-all">
-              <Icon className="w-8 h-8 text-blue-200 group-hover:text-blue-100 transition-colors" />
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 backdrop-blur-md border border-blue-400/40 flex items-center justify-center group-hover:border-blue-400/60 group-hover:from-blue-500/30 group-hover:to-cyan-500/30 transition-all">
+              <Icon className="w-8 h-8 text-blue-600 group-hover:text-blue-700 transition-colors" />
             </div>
 
             {/* Title */}
             <div className="space-y-2">
-              <h2 className="text-lg font-bold text-white leading-tight group-hover:text-blue-100 transition-colors">
+              <h2 className="text-lg font-bold text-black leading-tight group-hover:text-blue-900 transition-colors">
                 {service.title}
               </h2>
               <div className="h-0.5 w-12 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto opacity-60 group-hover:opacity-100 transition-opacity" />
             </div>
 
             {/* Label */}
-            <p className="text-xs text-blue-300/70 font-semibold tracking-widest uppercase group-hover:text-blue-300 transition-colors">
+            <p className="text-xs text-blue-600/70 font-semibold tracking-widest uppercase group-hover:text-blue-700 transition-colors">
               Expertise Area
             </p>
           </div>
@@ -116,7 +116,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
 
         {/* Back - Rich Details with Circuit Pattern */}
         <div
-          className="flip-card-back absolute inset-0 rounded-3xl p-8 flex flex-col overflow-hidden backdrop-blur-lg border border-blue-500/30 bg-gradient-to-br from-slate-950/80 via-blue-950/40 to-slate-900/60"
+          className="flip-card-back absolute inset-0 rounded-3xl p-8 flex flex-col overflow-hidden backdrop-blur-lg border border-blue-500/30 bg-gradient-to-br from-white via-blue-50/40 to-gray-50 shadow-lg"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
@@ -155,8 +155,8 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           {/* Content */}
           <div className="relative z-10 flex flex-col h-full">
             {/* Header with divider */}
-            <div className="mb-6 pb-4 border-b border-blue-500/20">
-              <h3 className="text-sm font-bold text-white uppercase tracking-widest">
+            <div className="mb-6 pb-4 border-b border-blue-500/30">
+              <h3 className="text-sm font-bold text-black uppercase tracking-widest">
                 {titles[index]}
               </h3>
             </div>
@@ -166,8 +166,8 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
               <div className="space-y-3">
                 {service.services.map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0 opacity-70" />
-                    <p className="text-xs text-blue-100/90 leading-relaxed">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1.5 flex-shrink-0 opacity-80" />
+                    <p className="text-xs text-gray-700 leading-relaxed">
                       {item}
                     </p>
                   </div>
@@ -176,7 +176,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
             </div>
 
             {/* Bottom accent line */}
-            <div className="mt-4 pt-4 border-t border-blue-500/20">
+            <div className="mt-4 pt-4 border-t border-blue-500/30">
               <div className="h-0.5 w-8 bg-gradient-to-r from-cyan-400 to-transparent opacity-60" />
             </div>
           </div>

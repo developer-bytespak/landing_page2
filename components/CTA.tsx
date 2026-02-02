@@ -53,7 +53,7 @@ const CTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg text-white/80 max-w-xl mx-auto mb-10"
+            className="text-lg text-white max-w-xl mx-auto mb-10"
           >
             Partner with a team that understands government contracting and
             delivers excellence on every project.
