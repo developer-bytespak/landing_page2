@@ -16,8 +16,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Civic Canvas",
-  description: "Your landing page description",
+  title: "Global Pardon",
+  description: "Clearing paths for your future",
+  icons: {
+    icon: "/lp_logoo.png",
+  },
 };
 
 export default function RootLayout({

@@ -55,9 +55,8 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-relaxed mb-4"
         >
-          <span className="block text-white">Construction &</span>
           <span className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
-            Engineering Excellence
+            PARDON AND WAIVER SOLUTIONS
           </span>
         </motion.h1>
 
@@ -68,7 +67,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
           className="text-base md:text-lg text-blue-200/70 font-light tracking-wide mt-4 mb-8"
         >
-          Federal & Government Projects
+          Clearing paths for your future
         </motion.p>
 
         {/* CTAs */}
@@ -76,13 +75,13 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex justify-center items-center"
         >
-          <a href="#contact" className="btn-primary px-6 py-2.5 text-sm md:text-base">
-            Contact Us
-          </a>
-          <a href="#services" className="btn-secondary px-6 py-2.5 text-sm md:text-base">
-            Explore Services
+          <a 
+            href="#contact" 
+            className="px-8 py-3 text-sm md:text-base font-medium bg-gray-50 text-gray-900 rounded-md border-2 border-gray-100 hover:bg-gradient-to-r hover:from-blue-400 hover:via-cyan-300 hover:to-blue-500 hover:text-white hover:border-transparent transition-all duration-300"
+          >
+            Get Started
           </a>
         </motion.div>
       </motion.div>

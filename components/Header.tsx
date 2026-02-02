@@ -58,22 +58,23 @@ const Header = () => {
     scrollY,
     [0, 100],
     [
-      "hsla(222, 47%, 6%, 0)", 
-      isTransparentSection ? "hsla(222, 47%, 6%, 0)" : "hsla(222, 47%, 6%, 0.95)"
+      "hsla(0, 0%, 100%, 0.95)", 
+      "hsla(0, 0%, 100%, 0.98)"
     ]
   );
   
   const headerBlur = useTransform(
     scrollY,
     [0, 100],
-    ["blur(0px)", isTransparentSection ? "blur(0px)" : "blur(12px)"]
+    ["blur(8px)", "blur(12px)"]
   );
 
   const navItems = [
+    { label: "Home", href: "#" },
     { label: "Services", href: "#services" },
-    { label: "Features", href: "#features" },
-    { label: "Experience", href: "#experience" },
-    { label: "ReadyToWork", href: "#readytowork" },
+    { label: "About", href: "#about" },
+    { label: "Testimonials", href: "#experience" },
+    { label: "Blogs", href: "#blogs" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -91,19 +92,19 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
-            <span className="text-2xl font-serif font-bold text-primary">CEF</span>
-            <span className="hidden sm:block text-sm text-muted-foreground border-l border-border pl-3">
-              Construction &<br />Engineering
+            <img src="/lp_logoo.png" alt="GP Logo" className="h-10 w-auto" />
+            <span className="hidden sm:block text-sm text-gray-700 border-l border-gray-300 pl-3">
+              GLOBAL PARDON &<br />US WAIVER SERVICES
             </span>
           </a>
 
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-8">
+          {/* Desktop Navigation - Right Aligned */}
+          <nav className="hidden lg:flex items-center gap-8 ml-auto">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-wide"
+                className="text-sm text-black hover:text-red-500 transition-colors duration-300 tracking-wide"
               >
                 {item.label}
               </a>
@@ -113,7 +114,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-black"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -124,7 +125,7 @@ const Header = () => {
       <motion.div
         initial={false}
         animate={{ height: isMenuOpen ? "auto" : 0, opacity: isMenuOpen ? 1 : 0 }}
-        className="lg:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border"
+        className="lg:hidden overflow-hidden bg-white border-t border-gray-300"
       >
         <nav className="flex flex-col gap-4 p-6">
           {navItems.map((item) => (
@@ -132,7 +133,7 @@ const Header = () => {
               key={item.label}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
-              className="text-lg text-foreground py-2 border-b border-border/50"
+              className="text-lg text-black py-2 border-b border-gray-200 hover:text-red-500 transition-colors"
             >
               {item.label}
             </a>

@@ -399,12 +399,12 @@ const ReadyToWork = () => {
   ];
 
   return (
-    <div id="readytowork" className="bg-[#010a14] bg-[url('/portfolio_bg.png')] bg-cover bg-center bg-no-repeat text-white">
+    <div id="readytowork" className="bg-white text-black">
       <section ref={spotlightRef as React.RefObject<HTMLElement>} className="relative w-full h-screen overflow-hidden">
         {/* Background Gradient */}
-        <div className="absolute inset-0 z-0" style={{ background: 'linear-gradient(to bottom, #010a14 0%, #0a1a2e 30%, #0a1a2e 50%, #050810 70%, #010a14 90%, #010a14 100%)' }}>
+        <div className="absolute inset-0 z-0" style={{ background: 'linear-gradient(to bottom, #ffffff 0%, #f8f9fa 30%, #f0f2f5 50%, #f8f9fa 70%, #ffffff 90%, #ffffff 100%)' }}>
           <div className="absolute inset-0 construction-stars" />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-transparent to-cyan-900/10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-100/20 via-transparent to-cyan-100/20" />
         </div>
 
         {/* Spotlight Content */}
@@ -414,7 +414,7 @@ const ReadyToWork = () => {
             <h1 className="text-4xl md:text-[4.5rem] lg:text-[4.5rem] bg-gradient-to-r from-[#0476b5] via-[#06a8da] to-[#14b8a6] bg-clip-text text-transparent font-serif font-bold leading-[0.9] tracking-wider will-change-transform">
               Ready to Build Your Vision?
             </h1>
-            <p className="text-base md:text-lg font-sans font-normal leading-relaxed text-gray-300">
+            <p className="text-base md:text-lg font-sans font-normal leading-relaxed text-gray-600">
               Join us on a journey to transform your construction dreams into reality
             </p>
           </div>
@@ -430,7 +430,7 @@ const ReadyToWork = () => {
             <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-bold bg-gradient-to-r from-[#0476b5] via-[#06a8da] to-[#14b8a6] bg-clip-text text-transparent leading-[1.1] tracking-wider">
               Compliance & Credentials
             </h1>
-            <p className="text-base md:text-lg font-sans font-normal leading-relaxed text-gray-300">
+            <p className="text-base md:text-lg font-sans font-normal leading-relaxed text-gray-600">
               Fully registered, bonded, and insured to support federal, state, and local government contracting requirements.
             </p>
             <style jsx>{`
@@ -456,7 +456,7 @@ const ReadyToWork = () => {
                 ref={(el) => {
                   featureBgRefs.current[index] = el;
                 }}
-                className="absolute inset-0 bg-[#0f1d2d] border border-[#0476b5]/40 rounded-lg backdrop-blur-sm will-change-transform"
+                className="absolute inset-0 bg-white/90 border border-[#0476b5]/40 rounded-lg backdrop-blur-sm will-change-transform shadow-md"
                 style={{ boxSizing: 'border-box' }}
               />
               <div
@@ -476,7 +476,7 @@ const ReadyToWork = () => {
         {/* Email Input Bar */}
         <div
           ref={searchBarRef}
-          className="absolute rounded-full border-[0.35rem] border-[#0476b5]/50 bg-[#0f1d2d]/80 opacity-0 flex items-center overflow-hidden z-50 backdrop-blur-md"
+          className="absolute rounded-full border-[0.35rem] border-[#0476b5]/50 bg-white/90 opacity-0 flex items-center overflow-hidden z-50 backdrop-blur-md shadow-lg"
           style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}
         >
           <div className="w-full h-full flex items-center">
@@ -492,7 +492,7 @@ const ReadyToWork = () => {
               onFocus={handleInputFocus}
               onBlur={handleInputBlur}
               placeholder="Your email to get started"
-              className="w-full h-full bg-transparent border-none outline-none text-white text-base px-4 placeholder:text-gray-500 placeholder:font-medium flex-1 font-sans"
+              className="w-full h-full bg-transparent border-none outline-none text-black text-base px-4 placeholder:text-gray-500 placeholder:font-medium flex-1 font-sans"
               disabled={isSubmitted}
               autoComplete="email"
             />

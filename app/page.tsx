@@ -11,12 +11,11 @@ import Services from "@/components/Services";
 import Credentials from "@/components/Credentials";
 import Experience from "@/components/Experience";
 import Markets from "@/components/Markets";
-import Safety from "@/components/Safety";
+import Blog from "@/components/Blog";
 import WhyPartner from "@/components/WhyPartner";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import VideoStrip from "@/components/VideoStrip";
-import ReadyToWork from "@/components/ReadyToWork";
+import AboutUs from "@/components/AboutUs";
 
 const queryClient = new QueryClient();
 
@@ -34,12 +33,11 @@ export default function Home() {
         <main>
           <Hero />
           <Services />
-          <VideoStrip />
+          <AboutUs />
           {/* <Markets /> */}
           {/* <WhyPartner /> */}
           <Experience />
-          <Safety />
-          <ReadyToWork />
+          <Blog />
           <CTA />
         </main>
         <Footer />

@@ -12,47 +12,24 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     icon: Building2,
-    title: "General Construction",
-    services: [
-      "Complete Project Management",
-      "Ground-Up Construction",
-      "Major Renovations",
-      "On-Time Delivery",
-      "Budget Compliance"
-    ],
+    emoji: "⚖️",
+    title: "Pardon / Record Suspension",
+    displayTitle: "📋 Pardon / Record Suspension",
+    description: "Navigate the pardon process with ease. We help you clear your record and move forward."
   },
   {
     icon: Compass,
-    title: "Design-Build",
-    services: [
-      "Single-Source Accountability",
-      "Design Excellence",
-      "Construction Expertise",
-      "Streamlined Delivery",
-      "Federal & Municipal Projects"
-    ],
+    emoji: "🛂",
+    title: "US Waiver Application",
+    displayTitle: "🛂 US Waiver Application",
+    description: "Gain access to the US without barriers. We assist with the complex waiver application process."
   },
   {
     icon: HardHat,
-    title: "Civil & Structural",
-    services: [
-      "Infrastructure Solutions",
-      "Structural Engineering",
-      "Code Compliance",
-      "Licensed Professionals",
-      "Safety Excellence"
-    ],
-  },
-  {
-    icon: Wrench,
-    title: "Facilities Maintenance",
-    services: [
-      "Preventive Maintenance",
-      "24/7 Support",
-      "Scheduled Inspections",
-      "Lifecycle Management",
-      "Government Buildings"
-    ],
+    emoji: "✈️",
+    title: "Nexus Application",
+    displayTitle: "✈️ Nexus Application",
+    description: "We assist with NEXUS Applications to help you travel between Canada and the US faster."
   },
 ];
 
@@ -64,7 +41,7 @@ const isMobile = () => {
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
   const Icon = service.icon;
   const [isFlipped, setIsFlipped] = useState(false);
-  const titles = ["GENERAL CONSTRUCTION", "DESIGN-BUILD", "CIVIL & STRUCTURAL", "FACILITIES MAINTENANCE"];
+  const titles = ["📋 PARDON / RECORD SUSPENSION", "🛂 US WAIVER APPLICATION", "✈️ NEXUS APPLICATION"];
 
   return (
     <div 
@@ -78,13 +55,14 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         style={{ 
           transformStyle: "preserve-3d",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-          transition: "transform 0.6s ease-out",
-          animation: "float 3s ease-in-out infinite"
+          transition: "transform 1.2s cubic-bezier(0.4, 0.0, 0.2, 1)",
+          animation: "float 3s ease-in-out infinite",
+          willChange: "transform"
         }}
       >
         {/* Front - Clean & Minimal */}
         <div
-          className="flip-card-front absolute inset-0 rounded-3xl p-8 flex flex-col items-center justify-center text-center backdrop-blur-lg border border-blue-400/20 bg-gradient-to-br from-slate-950/80 to-slate-900/60 overflow-hidden group-hover:border-blue-400/40 transition-colors"
+          className="flip-card-front absolute inset-0 rounded-3xl p-8 flex flex-col items-center justify-center text-center backdrop-blur-lg border border-blue-400/30 bg-gradient-to-br from-white to-gray-50 overflow-hidden group-hover:border-blue-400/50 transition-colors shadow-md"
           style={{ backfaceVisibility: "hidden" }}
         >
           {/* Subtle background glow */}
@@ -95,28 +73,23 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           {/* Content */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full gap-4">
             {/* Icon with glow effect */}
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/30 backdrop-blur-md border border-blue-300/50 flex items-center justify-center group-hover:border-blue-300/80 group-hover:from-blue-500/40 group-hover:to-cyan-500/40 transition-all">
-              <Icon className="w-8 h-8 text-blue-200 group-hover:text-blue-100 transition-colors" />
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 backdrop-blur-md border border-blue-400/40 flex items-center justify-center group-hover:border-blue-400/60 group-hover:from-blue-500/30 group-hover:to-cyan-500/30 transition-all">
+              <Icon className="w-8 h-8 text-blue-600 group-hover:text-blue-700 transition-colors" />
             </div>
 
             {/* Title */}
             <div className="space-y-2">
-              <h2 className="text-lg font-bold text-white leading-tight group-hover:text-blue-100 transition-colors">
-                {service.title}
+              <h2 className="text-lg font-bold text-black leading-tight group-hover:text-blue-900 transition-colors">
+                {service.displayTitle}
               </h2>
               <div className="h-0.5 w-12 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto opacity-60 group-hover:opacity-100 transition-opacity" />
             </div>
-
-            {/* Label */}
-            <p className="text-xs text-blue-300/70 font-semibold tracking-widest uppercase group-hover:text-blue-300 transition-colors">
-              Expertise Area
-            </p>
           </div>
         </div>
 
         {/* Back - Rich Details with Circuit Pattern */}
         <div
-          className="flip-card-back absolute inset-0 rounded-3xl p-8 flex flex-col overflow-hidden backdrop-blur-lg border border-blue-500/30 bg-gradient-to-br from-slate-950/80 via-blue-950/40 to-slate-900/60"
+          className="flip-card-back absolute inset-0 rounded-3xl p-8 flex flex-col overflow-hidden backdrop-blur-lg border border-blue-500/30 bg-gradient-to-br from-white via-blue-50/40 to-gray-50 shadow-lg"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
@@ -153,31 +126,24 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col h-full">
-            {/* Header with divider */}
-            <div className="mb-6 pb-4 border-b border-blue-500/20">
-              <h3 className="text-sm font-bold text-white uppercase tracking-widest">
-                {titles[index]}
+          <div className="relative z-10 flex flex-col h-full justify-center items-center text-center px-6">
+            {/* Emoji */}
+            <div className="mb-4">
+              <span className="text-5xl">{service.emoji}</span>
+            </div>
+            
+            {/* Heading */}
+            <div className="mb-4">
+              <h3 className="text-lg font-bold text-black">
+                {service.title}
               </h3>
             </div>
 
-            {/* Services list with improved spacing */}
-            <div className={`flex-1 ${index !== 0 && index !== 3 ? 'overflow-y-auto' : 'overflow-hidden'} pr-2`}>
-              <div className="space-y-3">
-                {service.services.map((item, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0 opacity-70" />
-                    <p className="text-xs text-blue-100/90 leading-relaxed">
-                      {item}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Bottom accent line */}
-            <div className="mt-4 pt-4 border-t border-blue-500/20">
-              <div className="h-0.5 w-8 bg-gradient-to-r from-cyan-400 to-transparent opacity-60" />
+            {/* Description */}
+            <div className="flex-1 flex items-start justify-center">
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {service.description}
+              </p>
             </div>
           </div>
         </div>
@@ -302,8 +268,8 @@ const Services = () => {
 
     } else {
       // Desktop Animation: Original spread animation
-      const position = [14, 38, 62, 86];
-      const rotation = [-15, -7.5, 7.5, 15];
+      const position = [20, 50, 80];
+      const rotation = [-12, 0, 12];
       const totalScrollHeight = window.innerHeight * 3;
 
       const cardsSection = container.current?.querySelector(".services-cards");
@@ -331,7 +297,14 @@ const Services = () => {
           position: "absolute",
           xPercent: -50,
           yPercent: -50,
+          force3D: true,
         });
+        
+        // Set transform style for better 3D rendering
+        const flipCardInner = card.querySelector(".flip-card-inner") as HTMLElement;
+        if (flipCardInner) {
+          flipCardInner.style.transformStyle = "preserve-3d";
+        }
       });
 
       // Spread Cards section
@@ -339,12 +312,12 @@ const Services = () => {
         gsap.to(card, {
           left: `${position[index]}%`,
           rotation: rotation[index],
-          ease: "none",
+          ease: "power2.out",
           scrollTrigger: {
             trigger: cardsSection,
             start: "top top",
             end: () => `+=${window.innerHeight}`,
-            scrub: 0.5,
+            scrub: 0.8,
             id: `spread-${index}`,
             onEnter: () => {
               card.style.pointerEvents = "none";
@@ -372,7 +345,7 @@ const Services = () => {
           trigger: cardsSection,
           start: "top top",
           end: () => `+=${totalScrollHeight}`,
-          scrub: 1,
+          scrub: 0.8,
           id: `rotate-flip-${index}`,
           onUpdate: (self) => {
             const progress = self.progress;
@@ -383,19 +356,15 @@ const Services = () => {
               const backRotation = 180 - 180 * animationProgress;
               const cardRotation = rotation[index] * (1 - animationProgress);
 
-              // Rotate the faces
-              gsap.to(frontEl, { rotateY: frontRotation, ease: "power1.out" });
-              gsap.to(backEl, { rotateY: backRotation, ease: "power1.out" });
+              // Directly set rotation for smoother performance
+              frontEl.style.transform = `rotateY(${frontRotation}deg)`;
+              backEl.style.transform = `rotateY(${backRotation}deg)`;
 
               // Toggle pointer events based on which side is visible
               frontEl.style.pointerEvents = "none";
 
-              gsap.to(card, {
-                xPercent: -50,
-                yPercent: -50,
-                rotate: cardRotation,
-                ease: "power1.out",
-              });
+              // Update card rotation
+              card.style.transform = `translate(-50%, -50%) rotate(${cardRotation}deg)`;
             }
           },
         });
@@ -404,10 +373,11 @@ const Services = () => {
   }, { scope: container, dependencies: [isMobileDevice] });
 
   useEffect(() => {
+    const currentContainer = container.current;
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
         const trg = trigger.vars?.trigger;
-        if (trg && typeof trg !== 'string' && container.current && container.current.contains(trg as Node)) {
+        if (trg && typeof trg !== 'string' && currentContainer && currentContainer.contains(trg as Node)) {
           trigger.kill();
         }
       });
@@ -426,17 +396,15 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16"
           >
-            <span className="text-blue-500 text-sm tracking-[0.3em] uppercase mb-3 block font-semibold">
-              Our Expertise
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-              Full-Spectrum Services
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">
+              Our Services
             </h2>
+            <div className="w-16 h-1 bg-red-600 mx-auto"></div>
           </motion.div>
 
           {/* Service Cards */}
           {isMobileDevice ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {services.map((service, index) => (
                 <motion.div
                   key={index}
@@ -453,7 +421,7 @@ const Services = () => {
               ))}
             </div>
           ) : (
-            <div className="services-cards relative w-full h-[550px]">
+            <div className="services-cards relative w-full h-[550px] max-w-6xl mx-auto">
               {services.map((service, index) => (
                 <div
                   key={index}
