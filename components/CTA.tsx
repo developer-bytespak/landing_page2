@@ -156,8 +156,8 @@ const CTA = () => {
                 Location
               </h3>
               <div className="text-gray-700 space-y-1">
-                <p>123 Legal Avenue, Suite 100</p>
-                <p>Toronto, ON M5V 2T6</p>
+                <p>77 City Centre Dr</p>
+                <p>Mississauga ON L5B 1M2</p>
               </div>
             </div>
 
@@ -168,7 +168,10 @@ const CTA = () => {
               </h3>
               <div className="text-gray-700 space-y-1">
                 <p>
-                  Phone: <a href="tel:555-123-4567" className="hover:text-red-600 transition-colors">(555) 123-4567</a>
+                  Phone: <a href="tel:1877-226-6612" className="hover:text-red-600 transition-colors">1877 226-6612</a>
+                </p>
+                <p>
+                  Phone: <a href="tel:647-699-8141" className="hover:text-red-600 transition-colors">647 699-8141</a>
                 </p>
                 <p>
                   Email: <a href="mailto:info@globalpardon.com" className="hover:text-red-600 transition-colors">info@globalpardon.com</a>
