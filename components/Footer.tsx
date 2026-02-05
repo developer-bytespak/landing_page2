@@ -56,7 +56,10 @@ const Footer = () => {
                 Email: <a href="mailto:info@globalpardon.com" className="hover:text-white transition-colors">info@globalpardon.com</a>
               </li>
               <li>
-                Phone: <a href="tel:555-123-4567" className="hover:text-white transition-colors">(555) 123-4567</a>
+                Phone: <a href="tel:1877-226-6612" className="hover:text-white transition-colors">1877 226-6612</a>
+              </li>
+              <li>
+                Phone: <a href="tel:647-699-8141" className="hover:text-white transition-colors">647 699-8141</a>
               </li>
             </ul>
           </div>
